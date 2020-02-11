@@ -232,27 +232,30 @@
   \section*{Handling raw MS data}
   \large
 
-  The raw MS data in \hcode{msdata2} will be handled by \hcode{Spectra} package.
-  The new \hcode{Spectra} package provides a common, flexible and a high-performance infrastructure to represent and handle MS data in R \cite{Spectra}. 
-  Various open-formats, e.g. mzML, mzXML, mz5 from different vendors can all be supported by \hcode{Spectra}.
-  The spectrum data (m/z - intensity pairs) will be represented as a matrix stored/provided by the Backend class.
-  
+  The raw MS data in \hcode{msdata2} will be handled using the
+  \hcode{Spectra} package.  The new \hcode{Spectra} package provides a
+  common, flexible and a high-performance infrastructure to represent
+  and handle MS data in R \cite{Spectra}. The spectrum data (m/z -
+  intensity pairs) is represented by a matrix handled by a dedicated
+  Backend class while keeping a consistent user experience. Efficient
+  data processing is obtained through lazy and parallel evaluation.
+
   \vspace{1cm}
 
   \begin{tabular}{@{\extracolsep{0.5pt}} llll}
     \\[-1.8ex]\hline
     \hline \\[-1.8ex]
-    \textbf{class} & \textbf{source.files} 
+    \textbf{class} & \textbf{source files}
     & \textbf{storage} & \textbf{writeable}\\
     \hline \\[-1.8ex]
     MsBackendDataFrame & manual & in-memory & yes \\
     MsBackendHdf5Peaks & hdf5 & on-disk & yes \\
-    MsBackendMzR & mzML, mzXML and CDF & on-disk & no \\
+    MsBackendMzR & mzML, mzXML, CDF & on-disk & no \\
     MsBackendHmdbXml & XML & on-disk & yes \\
     MsBackendRawFileReader & Thermo .raw & on-disk & no \\
     \hline \\[-1.8ex]
   \end{tabular}
-  
+
 
 \end{minipage}
 
@@ -358,10 +361,13 @@
   \bibitem{MSnbase} Gatto L, Lilley K (2012): \emph{MSnbase - an
     R/Bioconductor package for isobaric tagged mass spectrometry data
     visualization, processing and quantitation.}
-    \textit{Bioinformatics}, 28, 288-289.
-    
-   \bibitem{Spectra} Gibb S, Gatto L, Rainer J (2019): \emph{Spectra: A Flexible Infrastructure for Mass Spectrometry Data.}
-    \textit{European Bioconductor Meeting 2019}.
+    \textit{Bioinformatics}, 28,
+    288-289. \url{http://lgatto.github.io/MSnbase}.
+
+   \bibitem{Spectra} Laurent Gatto, Johannes Rainer and Sebastian Gibb
+     (2019). \textbf{Spectra}: Spectra Infrastructure for Mass
+     Spectrometry Data. R package version
+     0.3.0. \url{https://rformassspectrometry.github.io/Spectra/}.
   \end{thebibliography}
 
 \end{minipage}
