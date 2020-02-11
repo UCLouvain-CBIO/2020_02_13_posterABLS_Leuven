@@ -117,9 +117,9 @@
 
 \begin{center}
   \colorbox{lgray}{
-    \begin{minipage}{3cm}
-      \includegraphics[width=10em]{pix/sticker2019.png}
-    \end{minipage}
+    \begin{minipage}[c]{3cm}
+      \includegraphics[width=12em]{pix/ucllogo.png}
+    \end{minipage}%
 
   \begin{minipage}{.74\textwidth}
     \begin{center}
@@ -137,8 +137,7 @@
   \end{minipage}
   %&
   \begin{minipage}{5cm}
-    \includegraphics[width=12em]{pix/ucllogo.png} \\
-    \includegraphics[width=10em]{pix/Institut_de_Duve.png}
+    \includegraphics[width=9em]{pix/Institut_de_Duve.png}
   \end{minipage}
 }
 \end{center}
@@ -215,15 +214,46 @@
 
 
 
+% \noindent
+% \begin{minipage}[t]{\linewidth}
+%   \vspace{0.5cm}
+%   \large
+%   \begin{center}
+%     \includegraphics[width=0.6\textwidth]{pix/human3.png}
+%   \end{center}
+%   \vspace{-0.5cm}
+%   \captionof{figure}{\textbf{Unique peptide count} for each protein in the human background.}
+% \end{minipage}
+
 \noindent
-\begin{minipage}[t]{\linewidth}
-  \vspace{0.5cm}
+\begin{minipage}[h]{1\linewidth}
+  \vspace{1cm}
+
+  \section*{Handling raw MS data}
   \large
-  \begin{center}
-    \includegraphics[width=0.6\textwidth]{pix/human3.png}
-  \end{center}
-  \vspace{-0.5cm}
-  \captionof{figure}{\textbf{Unique peptide count} for each protein in the human background.}
+
+  The raw MS data in \hcode{msdata2} will be handled by \hcode{Spectra} package.
+  The new \hcode{Spectra} package provides a common, flexible and a high-performance infrastructure to represent and handle MS data in R \cite{Spectra}. 
+  Various open-formats, e.g. mzML, mzXML, mz5 from different vendors can all be supported by \hcode{Spectra}.
+  The spectrum data (m/z - intensity pairs) will be represented as a matrix stored/provided by the Backend class.
+  
+  \vspace{1cm}
+
+  \begin{tabular}{@{\extracolsep{0.5pt}} llll}
+    \\[-1.8ex]\hline
+    \hline \\[-1.8ex]
+    \textbf{class} & \textbf{source.files} 
+    & \textbf{storage} & \textbf{writeable}\\
+    \hline \\[-1.8ex]
+    MsBackendDataFrame & manual & in-memory & yes \\
+    MsBackendHdf5Peaks & hdf5 & on-disk & yes \\
+    MsBackendMzR & mzML, mzXML and CDF & on-disk & no \\
+    MsBackendHmdbXml & XML & on-disk & yes \\
+    MsBackendRawFileReader & Thermo .raw & on-disk & no \\
+    \hline \\[-1.8ex]
+  \end{tabular}
+  
+
 \end{minipage}
 
 
@@ -329,6 +359,9 @@
     R/Bioconductor package for isobaric tagged mass spectrometry data
     visualization, processing and quantitation.}
     \textit{Bioinformatics}, 28, 288-289.
+    
+   \bibitem{Spectra} Gibb S, Gatto L, Rainer J (2019): \emph{Spectra: A Flexible Infrastructure for Mass Spectrometry Data.}
+    \textit{European Bioconductor Meeting 2019}.
   \end{thebibliography}
 
 \end{minipage}
